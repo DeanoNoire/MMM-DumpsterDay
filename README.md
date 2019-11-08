@@ -1,5 +1,5 @@
 # MMM-DumpsterDay
-  This Magic Mirror module works as a reminder to take the dumpster from the driveway to the gate on every odd Tuesday. As is this very specific use, it can be easily changed to any reminder on recurring days.
+This Magic Mirror module works as a reminder to take the dumpster from the driveway to the gate on every odd Tuesday. Although  the use sounds very specific, it can be easily changed to any reminder on recurring days.
   
   ## Preview
 
