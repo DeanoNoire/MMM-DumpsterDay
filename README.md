@@ -9,10 +9,10 @@
 
 
 ## Config:
-  **startDateYear** int - Year of the start date
-  **startDateMonth** int - Month of the start date
-  **startDateDay** int - Day of the start date
-  **datediff_1** int - Number of days setting the recurrence of the notification.
+  **startDateYear** int - Year of the start date<br/>
+  **startDateMonth** int - Month of the start date<br/>
+  **startDateDay** int - Day of the start date<br/>
+  **datediff_1** int - Number of days setting the recurrence of the notification.<br/>
   **datediff_2** int - Second number of days setting the recurrence of the notification. In case you need only one day set it equal to   datediff_1
   
 ## How it works:
