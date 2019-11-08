@@ -1,2 +1,2 @@
 # MMM-DumpsterDay
-Magic Mirror module showing specific pulsing image as notification on recurring days.
+Magic Mirror module showing pulsing dumpster image as notification on every odd Monday and Tuesday.
