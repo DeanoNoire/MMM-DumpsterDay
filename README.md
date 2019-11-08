@@ -3,7 +3,7 @@ This Magic Mirror module works as a reminder to take the dumpster from the drive
   
   ## Preview
 
-<img src="https://github.com/DeanoNoire/MMM-DumpsterDay/blob/master/preview.PNG">
+<img src="https://github.com/DeanoNoire/MMM-DumpsterDay/blob/master/multiple.PNG">
 
 
 
