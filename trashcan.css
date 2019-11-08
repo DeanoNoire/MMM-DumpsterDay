@@ -1,17 +1,45 @@
-.trashcanWrapper{
+.trashcan_wrapper{
 	margin: auto;
-	width:100px;
+	width:400px;
 	height:130px;
-	overflow: auto;
-	background-image: url(imgs/popelnice.png);
+}
+
+.basicDiv{
+	height:130px;
+	width:20%;
+	background-image: url(imgs/basic.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
+	overflow: auto;
+	display:inline-block;
 }
 
-.non_trash_day{
-	display:none;
+.plasticDiv{
+	height:130px;
+	width:20%;
+	background-image: url(imgs/recycle_yellow.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	overflow: auto;
+	display:inline-block;
 }
+
+.landscapeDiv{
+	height:130px;
+	width:20%;
+	background-image: url(imgs/landscape.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	overflow: auto;
+	display:inline-block;
+}
+
+.non_today{
+	display:none;
+	}
 
 .pulse{
 	-webkit-animation-name: pulsate;

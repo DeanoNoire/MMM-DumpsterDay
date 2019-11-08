@@ -1,15 +1,28 @@
 Module.register("trashcan",{
 
 	defaults:{
-		startDateYear: 2019,
-		startDateMonth: 10,
-		startDateDay: 29,
-		datediff_1: 14,
-		datediff_2: 13,
-		refreshInterval: 18000000
+		refreshInterval: 18000000, // Default 18000000 = 5 hours
+		pulse: true, // Make the module pulsating
+
+		enableBasic: true,
+		basicStartDate: "29.10.2019", 
+		basicDateDiff_1: 14,
+		basicDateDiff_2: 13,
+		
+		enablePlastic: true,
+		plasticStartDate: "16.01.2019", // use 01 instead of 1
+		plasticDateDiff_1: 28,
+		plasticDateDiff_2: 28,
+
+		enableLandscape: false,
+		landscapeStartDate: "29.10.2019",
+		landscapeDateDiff_1: 28,		
+		landscapeDateDiff_2: 28		
 	},
 
-		vysledekTrashDay: null,
+		basicTrashDayResult: null,
+		plasticTrashDayResult: null,
+		landscapeTrashDayResult: null,
 	
 
 	start: function() {
@@ -19,28 +32,65 @@ Module.register("trashcan",{
 		setInterval(function(){
 			self.updateDom();
 		},this.config.refreshInterval);
-
-
 	},
 		
 
 	getStyles: function() {
 	        return ["trashcan.css"];
-    	},
+    },
 
 	getDom: function() {
 		var self = this;
+		var pulse = this.config.pulse;
+		var enableBasic = this.config.enableBasic;
+		var enablePlastic = this.config.enablePlastic;
+		var enableLandscape = this.config.enableLandscape;
 
-		vysledekTrashDay = this.isTrashDay();
-		Log.info("Vysledek TrashDay: "+vysledekTrashDay);
-
-		//var vysledek = new isTrashDay();
 		var wrapper = document.createElement("div");
-		wrapper.className = "trashcanWrapper";
-		if (vysledekTrashDay == 0){
-			wrapper.classList.add("non_trash_day");
+		wrapper.classname = "trashcan_wrapper"
+
+		if (pulse == true){
+			wrapper.classList.add("pulse");
 			}
-		wrapper.classList.add("pulse");
+
+		if (enableBasic == true){
+		basicTrashDayResult = this.isBasicTrashDay();
+		Log.info("basicTrashDayResult: "+basicTrashDayResult);
+		var basicDiv = document.createElement("div");
+		basicDiv.className = "basicDiv";
+		wrapper.appendChild(basicDiv);
+			if (basicTrashDayResult == 0){
+				basicDiv.classList.add("non_today");
+			}
+		}
+
+
+		if (enablePlastic == true){
+		plasticTrashDayResult = this.isPlasticTrashDay();
+		Log.info("plasticTrashDayResult: "+basicTrashDayResult);
+		var plasticDiv = document.createElement("div");
+		plasticDiv.className = "plasticDiv";
+		wrapper.appendChild(plasticDiv);
+			if (plasticTrashDayResult == 0){
+			plasticDiv.classList.add("non_today")
+			}
+		}
+
+
+		if (enableLandscape == true){
+		landscapeTrashDayResult = this.isPlasticTrashDay();
+		Log.info("landscapeTrashDayResult: "+basicTrashDayResult);
+		var landscapeDiv = document.createElement("div");
+		landscapeDiv.className = "landscapeDiv";
+		wrapper.appendChild(landscapeDiv);
+			if (landscapeTrashDayResult == 0){
+			landscapeDiv.classList.add("non_today")
+			}
+			
+		}		
+
+
+
 		return wrapper;
 	},
 
@@ -48,34 +98,69 @@ Module.register("trashcan",{
 
 	socketNotificationReceived: function() {},
 
-	isTrashDay: function(){;
-		var startDateYear = this.config.startDateYear;
-		var startDateMonth = this.config.startDateMonth;
-		var startDateDay = this.config.startDateDay;
-		var datediff_1 = this.config.datediff_1;
-		var datediff_2 = this.config.datediff_2;
+		isBasicTrashDay: function(){;
+			var startDate = this.config.basicStartDate;
+			var startDateYear = startDate.substring(6,10);
+			var startDateMonth = startDate.substring(3,5);
+			var startDateDay = startDate.substring(0,2);
+			var datediff_1 = this.config.basicDateDiff_1;
+			var datediff_2 = this.config.basicDateDiff_2;
 
-		var today = new Date();
-			Log.info("..........Today's date: "+ today);
-	
-			const zacatek = new Date(startDateYear,startDateMonth-1,startDateDay);
-			Log.info("..........Start date: "+ zacatek);
-	
-			var rozdil = parseInt((today-zacatek)/(24*3600*1000));
-			Log.info(rozdil);
-			var ukazovat;
-			//
-			if (rozdil%datediff_1 == 0 || rozdil%datediff_2 == 0) {
-				ukazovat = 1
-				Log.info("It's trashcan day (or tomorrow is)!")	
-			}
-			else {
-				ukazovat = 0
-			}
-	
-	
-			return ukazovat;
-		}
+			var today = new Date();
+			var result;
+			const beginning = new Date(startDateYear,startDateMonth-1,startDateDay);
+			var difference = parseInt((today-beginning)/(24*3600*1000));
+
+			if (difference%datediff_1 == 0 || difference%datediff_2 == 0) {
+					result = 1
+				}
+				else {result = 0}
+		return result;
+		},
+
+
+		isPlasticTrashDay: function(){;
+			var startDate = this.config.plasticStartDate;
+			var startDateYear = startDate.substring(6,10);
+			var startDateMonth = startDate.substring(3,5);
+			var startDateDay = startDate.substring(0,2);
+			var datediff_1 = this.config.datediff_1;
+			var datediff_2 = this.config.datediff_2;
+
+			var today = new Date();
+			var result;
+			const beginning = new Date(startDateYear,startDateMonth-1,startDateDay);
+			var difference = parseInt((today-beginning)/(24*3600*1000));
+
+			if (difference%datediff_1 == 0 || difference%datediff_2 == 0) {
+					result = 1
+				}
+				else {result = 0}
+		return result;
+		},
+
+		isLandscapeTrashDay: function(){;
+			var startDate = this.config.landscapeStartDate;
+			var startDateYear = startDate.substring(6,10);
+			var startDateMonth = startDate.substring(3,5);
+			var startDateDay = startDate.substring(0,2);
+			var datediff_1 = this.config.datediff_1;
+			var datediff_2 = this.config.datediff_2;
+
+			var today = new Date();
+			var result;
+			const beginning = new Date(startDateYear,startDateMonth-1,startDateDay);
+			var difference = parseInt((today-beginning)/(24*3600*1000));
+
+			if (difference%datediff_1 == 0 || difference%datediff_2 == 0) {
+					result = 1
+				}
+				else {result = 0}
+		return result;
+		},
+
+
+
 })
 
 
