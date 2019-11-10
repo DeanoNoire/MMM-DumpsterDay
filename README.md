@@ -12,7 +12,7 @@ This Magic Mirror module works as a reminder to take the dumpster from the drive
   **startDateMonth** int - Month of the start date<br/>
   **startDateDay** int - Day of the start date<br/>
   **datediff_1** int - Number of days setting the recurrence of the notification.<br/>
-  **datediff_2** int - Second number of days setting the recurrence of the notification. In case you need only one day set it equal to   datediff_1
+  **notifyDayBefore** int - If you want the notification to appear also the day before the dumpster day
   
 ## How it works:
  1) Set the startDateYear, startDateMonth and startDateDay to the day when the recurring event last happened. 
