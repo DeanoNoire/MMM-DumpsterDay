@@ -5,7 +5,38 @@ This Magic Mirror module works as a reminder to take the dumpster from the drive
 <img src="https://github.com/DeanoNoire/MMM-DumpsterDay/blob/master/multiple.png?raw=true">
 
 
+## Install
+1) Copy the contents into MagicMirror/modules folder
+<br/>
+2) Update your config:
 
+
+{
+
+    module:"trashcan",
+	  position:"lower_third",
+	  
+    config: {
+		refreshInterval: 18000000, // Default: 18000000 = 5 hours
+		pulse: true, 			   // Default: true - Makes the module pulsating
+	
+    enableBasic: true, 				// Enable basic trashcan 
+		basicStartDate: "24.10.2019", 	// The first dumpster day (Always use 2 digit dates (01 instead of 1))
+		basicDateDiff_1: 14,			// Trashday reoccurance - Default: 14 (every 14 days)
+		basicNotifyDayBefore: true,		//Default: true - If you want the notification to appear also the day before the dumpster day
+		
+    enablePlastic: true,			// Same values as basic but for Plastic
+		plasticStartDate: "16.01.2019", 
+		plasticDateDiff_1: 28,
+		plasticNotifyDayBefore: true,	
+
+		enableLandscape: false,			// Same values as basic but for Landscape
+		landscapeStartDate: "29.10.2019",
+		landscapeDateDiff_1: 28,		
+		landscapeNotifyDayBefore: true,
+    
+	}
+    
 
 ## Config:
   **startDateYear** int - Year of the start date<br/>
