@@ -7,17 +7,18 @@ Module.register("trashcan",{
 		enableBasic: true,
 		basicStartDate: "29.10.2019", 
 		basicDateDiff_1: 14,
-		basicDateDiff_2: 13,
+		basicNotifyDayBefore: true,
+
 		
 		enablePlastic: true,
 		plasticStartDate: "16.01.2019", // use 01 instead of 1
 		plasticDateDiff_1: 28,
-		plasticDateDiff_2: 28,
+		plasticNotifyDayBefore: true,
 
 		enableLandscape: false,
 		landscapeStartDate: "29.10.2019",
 		landscapeDateDiff_1: 28,		
-		landscapeDateDiff_2: 28		
+		landscapeNotifyDayBefore: true,
 	},
 
 		basicTrashDayResult: null,
@@ -104,7 +105,11 @@ Module.register("trashcan",{
 			var startDateMonth = startDate.substring(3,5);
 			var startDateDay = startDate.substring(0,2);
 			var datediff_1 = this.config.basicDateDiff_1;
-			var datediff_2 = this.config.basicDateDiff_2;
+			var notifyDayBefore = this.config.basicNotifyDayBefore;
+			if (notifyDayBefore == true){
+				var datediff_2 = datediff_1-1;
+			}
+			else var datediff_2 = datediff_1
 
 			var today = new Date();
 			var result;
@@ -125,7 +130,11 @@ Module.register("trashcan",{
 			var startDateMonth = startDate.substring(3,5);
 			var startDateDay = startDate.substring(0,2);
 			var datediff_1 = this.config.datediff_1;
-			var datediff_2 = this.config.datediff_2;
+			var notifyDayBefore = this.config.plasticNotifyDayBefore;
+			if (notifyDayBefore == true){
+				var datediff_2 = datediff_1-1;
+			}
+			else var datediff_2 = datediff_1
 
 			var today = new Date();
 			var result;
@@ -145,7 +154,11 @@ Module.register("trashcan",{
 			var startDateMonth = startDate.substring(3,5);
 			var startDateDay = startDate.substring(0,2);
 			var datediff_1 = this.config.datediff_1;
-			var datediff_2 = this.config.datediff_2;
+			var notifyDayBefore = this.config.landscapeNotifyDayBefore;
+			if (notifyDayBefore == true){
+				var datediff_2 = datediff_1-1;
+			}
+			else var datediff_2 = datediff_1
 
 			var today = new Date();
 			var result;
