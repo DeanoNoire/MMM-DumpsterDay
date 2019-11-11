@@ -10,9 +10,9 @@ This Magic Mirror module works as a reminder to take the dumpster from the drive
 <br/>
 2) Update your config:
 
-{
 
-    module:"MMM-DumpsterDay",
+
+    {module:"MMM-DumpsterDay",
 	  position:"lower_third",
 	  
     config: {
@@ -34,6 +34,7 @@ This Magic Mirror module works as a reminder to take the dumpster from the drive
 		landscapeDateDiff_1: 28,		
 		landscapeNotifyDayBefore: true,
     
+	}
 	}
     
   
