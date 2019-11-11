@@ -1,15 +1,15 @@
-Module.register("trashcan",{
+Module.register("MMM-DumpsterDay",{
 
 	defaults:{
 		refreshInterval: 18000000, // Default 18000000 = 5 hours
 		pulse: true, // Make the module pulsating
 
 		enableBasic: true,
-		basicStartDate: "29.10.2019", 
+		basicStartDate: "29.10.2019",
 		basicDateDiff_1: 14,
 		basicNotifyDayBefore: true,
 
-		
+
 		enablePlastic: true,
 		plasticStartDate: "16.01.2019", // use 01 instead of 1
 		plasticDateDiff_1: 28,
@@ -17,14 +17,14 @@ Module.register("trashcan",{
 
 		enableLandscape: false,
 		landscapeStartDate: "29.10.2019",
-		landscapeDateDiff_1: 28,		
+		landscapeDateDiff_1: 28,
 		landscapeNotifyDayBefore: true,
 	},
 
 		basicTrashDayResult: null,
 		plasticTrashDayResult: null,
 		landscapeTrashDayResult: null,
-	
+
 
 	start: function() {
 		Log.info("Starting module: " + this.name);
@@ -34,10 +34,10 @@ Module.register("trashcan",{
 			self.updateDom();
 		},this.config.refreshInterval);
 	},
-		
+
 
 	getStyles: function() {
-	        return ["trashcan.css"];
+	        return ["MMM-DumpsterDay.css"];
     },
 
 	getDom: function() {
@@ -87,8 +87,8 @@ Module.register("trashcan",{
 			if (landscapeTrashDayResult == 0){
 			landscapeDiv.classList.add("non_today")
 			}
-			
-		}		
+
+		}
 
 
 
@@ -175,5 +175,3 @@ Module.register("trashcan",{
 
 
 })
-
-
