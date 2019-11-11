@@ -4,6 +4,9 @@ This Magic Mirror module works as a reminder to take the dumpster from the drive
   ## Preview
 <img src="https://github.com/DeanoNoire/MMM-DumpsterDay/blob/master/multiple.png?raw=true">
 
+ ## NOTICE:
+ The start date should not be a future date!
+
 
 ## Install
 1) git colne https://github.com/DeanoNoire/MMM-DumpsterDay.git to the MagicMirror/modules directory.
