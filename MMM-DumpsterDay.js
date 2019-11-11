@@ -129,7 +129,7 @@ Module.register("MMM-DumpsterDay",{
 			var startDateYear = startDate.substring(6,10);
 			var startDateMonth = startDate.substring(3,5);
 			var startDateDay = startDate.substring(0,2);
-			var datediff_1 = this.config.datediff_1;
+			var datediff_1 = this.config.plasticDateDiff_1;
 			var notifyDayBefore = this.config.plasticNotifyDayBefore;
 			if (notifyDayBefore == true){
 				var datediff_2 = datediff_1-1;
@@ -153,7 +153,7 @@ Module.register("MMM-DumpsterDay",{
 			var startDateYear = startDate.substring(6,10);
 			var startDateMonth = startDate.substring(3,5);
 			var startDateDay = startDate.substring(0,2);
-			var datediff_1 = this.config.datediff_1;
+			var datediff_1 = this.config.landscapeDateDiff_1;
 			var notifyDayBefore = this.config.landscapeNotifyDayBefore;
 			if (notifyDayBefore == true){
 				var datediff_2 = datediff_1-1;
