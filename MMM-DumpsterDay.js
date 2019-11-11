@@ -62,13 +62,14 @@ Module.register("MMM-DumpsterDay",{
 		wrapper.appendChild(basicDiv);
 			if (basicTrashDayResult == 0){
 				basicDiv.classList.add("non_today");
+				Log.info("zmizikuju basic");
 			}
 		}
 
 
 		if (enablePlastic == true){
 		plasticTrashDayResult = this.isPlasticTrashDay();
-		Log.info("plasticTrashDayResult: "+basicTrashDayResult);
+		Log.info("plasticTrashDayResult: "+plasticTrashDayResult);
 		var plasticDiv = document.createElement("div");
 		plasticDiv.className = "plasticDiv";
 		wrapper.appendChild(plasticDiv);
@@ -80,7 +81,7 @@ Module.register("MMM-DumpsterDay",{
 
 		if (enableLandscape == true){
 		landscapeTrashDayResult = this.isPlasticTrashDay();
-		Log.info("landscapeTrashDayResult: "+basicTrashDayResult);
+		Log.info("landscapeTrashDayResult: "+landscapeTrashDayResult);
 		var landscapeDiv = document.createElement("div");
 		landscapeDiv.className = "landscapeDiv";
 		wrapper.appendChild(landscapeDiv);
@@ -113,8 +114,14 @@ Module.register("MMM-DumpsterDay",{
 
 			var today = new Date();
 			var result;
+			const todays = new Date(today.getFullYear(),today.getMonth(),today.getDate());
 			const beginning = new Date(startDateYear,startDateMonth-1,startDateDay);
-			var difference = parseInt((today-beginning)/(24*3600*1000));
+			
+			var difference = parseInt((todays-beginning)/(24*3600*1000));
+
+			if(difference < 0) {
+				difference = difference + datediff_1
+			}
 
 			if (difference%datediff_1 == 0 || difference%datediff_2 == 0) {
 					result = 1
@@ -138,8 +145,14 @@ Module.register("MMM-DumpsterDay",{
 
 			var today = new Date();
 			var result;
+			const todays = new Date(today.getFullYear(),today.getMonth(),today.getDate());
 			const beginning = new Date(startDateYear,startDateMonth-1,startDateDay);
-			var difference = parseInt((today-beginning)/(24*3600*1000));
+			
+			var difference = parseInt((todays-beginning)/(24*3600*1000));
+
+			if(difference < 0) {
+				difference = difference + datediff_1
+			}
 
 			if (difference%datediff_1 == 0 || difference%datediff_2 == 0) {
 					result = 1
@@ -153,7 +166,7 @@ Module.register("MMM-DumpsterDay",{
 			var startDateYear = startDate.substring(6,10);
 			var startDateMonth = startDate.substring(3,5);
 			var startDateDay = startDate.substring(0,2);
-			var datediff_1 = this.config.landscapeDateDiff_1;
+			var datediff_1 = this.config.landscapeDatediff_1;
 			var notifyDayBefore = this.config.landscapeNotifyDayBefore;
 			if (notifyDayBefore == true){
 				var datediff_2 = datediff_1-1;
@@ -162,8 +175,14 @@ Module.register("MMM-DumpsterDay",{
 
 			var today = new Date();
 			var result;
+			const todays = new Date(today.getFullYear(),today.getMonth(),today.getDate());
 			const beginning = new Date(startDateYear,startDateMonth-1,startDateDay);
-			var difference = parseInt((today-beginning)/(24*3600*1000));
+			
+			var difference = parseInt((todays-beginning)/(24*3600*1000));
+
+			if(difference < 0) {
+				difference = difference + datediff_1
+			}
 
 			if (difference%datediff_1 == 0 || difference%datediff_2 == 0) {
 					result = 1
