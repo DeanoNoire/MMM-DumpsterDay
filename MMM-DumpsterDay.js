@@ -80,7 +80,7 @@ Module.register("MMM-DumpsterDay",{
 
 
 		if (enableLandscape == true){
-		landscapeTrashDayResult = this.isPlasticTrashDay();
+		landscapeTrashDayResult = this.isLandscapeTrashDay();
 		Log.info("landscapeTrashDayResult: "+landscapeTrashDayResult);
 		var landscapeDiv = document.createElement("div");
 		landscapeDiv.className = "landscapeDiv";
