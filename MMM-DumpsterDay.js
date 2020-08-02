@@ -5,13 +5,13 @@ Module.register("MMM-DumpsterDay",{
 		pulse: true, // Make the module pulsating
 
 		enableBasic: true,
-		basicStartDate: "29.10.2019",
+		basicStartDate: "21.08.2020",
 		basicDateDiff_1: 14,
 		basicNotifyDayBefore: true,
 
 
 		enablePlastic: true,
-		plasticStartDate: "16.01.2019", // use 01 instead of 1
+		plasticStartDate: "29.08.2020", // use 01 instead of 1
 		plasticDateDiff_1: 28,
 		plasticNotifyDayBefore: true,
 
