@@ -158,24 +158,24 @@ Module.register("MMM-DumpsterDay",{
 			Log.info("********"+type+"*******");
 			Log.info("Day difference: "+difference+" x Days until next: "+(((difference%datediff_1)-datediff_1)*-1)+" ");
 		
-			// Handling if is set future date as start date
+			// Handling future date as start date
 			if(difference < 0) {
 				difference = difference + datediff_1
 			}
-			
+
+		
 			// Trashday today 
 			if (difference%datediff_1 == 0) {
 					result = 1
 					Log.info("It's trashday !!");
 				}
-
 			// Trashday tomorrow - only if notify day before is enabled
-				else if (difference%(datediff_1+datediff_2) == 0) {
+				else if ((difference%datediff_1)+datediff_2 == 0) { 
 						result = 1
-						Log.info("Tomorrow is trashday !!");
 				}
+			
 			// Not a trashday
-					else {
+				else { 
 					result = 0
 					Log.info("Not a trashday");
 					}
