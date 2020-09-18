@@ -5,13 +5,21 @@ Module.register("MMM-DumpsterDay",{
 		pulse: true, // Make the module pulsating
 
 		enableBasic: true,
+<<<<<<< HEAD
 		basicStartDate: "21.07.2020", // use DD.MM.YYYY format
+=======
+		basicStartDate: "21.08.2020",
+>>>>>>> 475fb4d0f83429353734af1561a51877b34f8c1c
 		basicDateDiff_1: 14,
 		basicNotifyDayBefore: true,
 
 
 		enablePlastic: true,
+<<<<<<< HEAD
 		plasticStartDate: "29.07.2020", // use DD.MM.YYYY format
+=======
+		plasticStartDate: "29.08.2020", // use 01 instead of 1
+>>>>>>> 475fb4d0f83429353734af1561a51877b34f8c1c
 		plasticDateDiff_1: 28,
 		plasticNotifyDayBefore: true,
 
