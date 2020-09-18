@@ -170,7 +170,7 @@ Module.register("MMM-DumpsterDay",{
 					Log.info("It's trashday !!");
 				}
 			// Trashday tomorrow - only if notify day before is enabled
-				else if ((difference%datediff_1)+datediff_2 == 0) { 
+				else if ((difference%datediff_1)+datediff_2 == datediff_1 && datediff_2 == 1) { 
 						result = 1
 				}
 			
